@@ -67,6 +67,8 @@ rm -rf ./$fuSdkDir
 # Replace signing info
 python ./build-templates/replace.py
 
+cat app/src/main/res/values/strings.xml
+
 # Build release
 chmod +x ./gradlew
 ./gradlew assembleRelease
