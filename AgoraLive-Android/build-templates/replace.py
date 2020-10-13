@@ -33,7 +33,9 @@ def main():
 
     f2 = open("./app/src/main/res/values/strings.xml", 'r+')
     content = f2.read();
-    contentNew = re.sub(r'<string name="bugly_app_id"></string>', '<string name="bugly_app_id">' + bugly + '</string>', content)
+    replace = '<string name="bugly_app_id">' + bugly + '</string>'
+    print(replace)
+    contentNew = re.sub(r'<string name="bugly_app_id"></string>', replace, content)
     f2.seek(0)
     f2.write(contentNew)
     f2.truncate()

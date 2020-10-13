@@ -68,6 +68,7 @@ rm -rf ./$fuSdkDir
 python ./build-templates/replace.py
 
 cat app/src/main/res/values/strings.xml
+cat app/build.gradle
 
 # Build release
 chmod +x ./gradlew
