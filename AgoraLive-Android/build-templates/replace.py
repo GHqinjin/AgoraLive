@@ -19,7 +19,7 @@ def main():
         alias = os.environ["alias"]
 
     if "bugly" in os.environ:
-        alias = os.environ["alias"]
+        bugly = os.environ["bugly"]
 
     f1 = open("./app/build.gradle", 'r+')
     content = f1.read()
