@@ -22,7 +22,7 @@ def main():
         alias = os.environ["alias"]
 
     f1 = open("./app/build.gradle", 'r+')
-    content = f.read()
+    content = f1.read()
     contentNew = re.sub(r'azure_keystore_file', keystore, content)
     contentNew = re.sub(r'azureKeystorePassword', password, contentNew)
     contentNew = re.sub(r'azure_keystore_alias', alias, contentNew)
@@ -31,7 +31,7 @@ def main():
     f1.truncate()
 
     f2 = open("./app/src/main/res/values/strings.xml", 'r+')
-    content = f.read();
+    content = f2.read();
     contentNew = re.sub(r'<string name="bugly_app_id"></string>', '<string name="bugly_app_id">' + bugly + '</string>', content)
     f2.seek(0)
     f1.write(contentNew)
