@@ -29,14 +29,15 @@ def main():
     f1.seek(0)
     f1.write(contentNew)
     f1.truncate()
+    f1.close()
 
     f2 = open("./app/src/main/res/values/strings.xml", 'r+')
     content = f2.read();
     contentNew = re.sub(r'<string name="bugly_app_id"></string>', '<string name="bugly_app_id">' + bugly + '</string>', content)
     f2.seek(0)
-    f1.write(contentNew)
+    f2.write(contentNew)
     f2.truncate()
-
+    f2.close()
 
 if __name__ == "__main__":
     main()
