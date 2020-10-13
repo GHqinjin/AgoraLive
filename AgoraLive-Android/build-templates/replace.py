@@ -21,15 +21,21 @@ def main():
     if "bugly" in os.environ:
         alias = os.environ["alias"]
 
-    f = open("./app/build.gradle", 'r+')
+    f1 = open("./app/build.gradle", 'r+')
     content = f.read()
     contentNew = re.sub(r'azure_keystore_file', keystore, content)
     contentNew = re.sub(r'azureKeystorePassword', password, contentNew)
     contentNew = re.sub(r'azure_keystore_alias', alias, contentNew)
-    contentNew = re.sub(r'<string name="bugly_app_id"></string>', '<string name="bugly_app_id">' + bugly + '</string>', contentNew)
-    f.seek(0)
-    f.write(contentNew)
-    f.truncate()
+    f1.seek(0)
+    f1.write(contentNew)
+    f1.truncate()
+
+    f2 = open("./app/src/main/res/values/strings.xml", 'r+')
+    content = f.read();
+    contentNew = re.sub(r'<string name="bugly_app_id"></string>', '<string name="bugly_app_id">' + bugly + '</string>', content)
+    f2.seek(0)
+    f1.write(contentNew)
+    f2.truncate()
 
 
 if __name__ == "__main__":
